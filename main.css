@@ -12,10 +12,14 @@ body {
 body ol, body ul {
   list-style: none;
 }
+body a {
+  text-decoration: none;
+  color: #fefffe;
+}
 
 .wrapper {
   display: grid;
-  grid-template-columns: 2fr 8fr;
+  grid-template-columns: 2fr 9fr;
   grid-template-rows: 2fr 8fr;
   grid-template-areas: "aside header" "aside main";
 }
@@ -31,6 +35,40 @@ body ol, body ul {
   grid-template: 1fr 1fr/2fr 1fr;
 }
 .wrapper aside {
+  background-color: #1892d5;
+  min-height: 100vh;
   grid-area: aside;
   display: grid;
+  grid-template-rows: 1fr 3fr 5fr;
+  gap: 1rem;
+  padding: 1rem;
+}
+.wrapper aside .logo {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #fefffe;
+}
+.wrapper aside .logo .logo-icon {
+  width: 60px;
+  height: 60px;
+}
+.wrapper aside .aside-nav {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.wrapper aside .aside-nav .iconify {
+  width: 30px;
+  height: 30px;
+}
+.wrapper aside .aside-nav ul {
+  display: grid;
+  gap: 1rem;
+}
+.wrapper aside .aside-nav a {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
 }/*# sourceMappingURL=main.css.map */
