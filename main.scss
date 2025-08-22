@@ -33,7 +33,7 @@ $radius-full: 9999px;
 
 $shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
 $shadow-md: 0 2px 6px rgba(0,0,0,0.1);
-$shadow-lg: 0 4px 12px rgba(0,0,0,0.15);
+$shadow-lg: 0 6px 20px rgba(46, 46, 46, 0.4);
 
 * {
     box-sizing: border-box;
@@ -41,6 +41,7 @@ $shadow-lg: 0 4px 12px rgba(0,0,0,0.15);
     padding: 0;
     border: 0;
 }
+
 body {
     line-height: 1.5;
     font-family: $font-family-base;
@@ -56,22 +57,175 @@ body {
 .wrapper {
     display: grid;
     grid-template-columns: 2fr 9fr;
-    grid-template-rows: 2fr 8fr;
+    grid-template-rows: 1fr 8fr;
     grid-template-areas: 
     "aside header"
     "aside main";
 
     header{
+        background-color: $secondary-color;
         grid-area: header;
         display: grid;
         grid-template-columns: 2fr 1fr;
-        grid-template-rows: 1fr 1fr;
+        box-shadow: $shadow-lg;
+        padding: $space-sm;
+        .search-bar {
+            display: flex;
+            padding: 0 $space-md ;
+            align-items: center;
+            .iconify {
+                width: 2rem;
+                height: 2rem;
+                margin-right: $space-sm;
+            }
+            input {
+                height: 2rem;
+                flex: 1;
+                background-color: $third-color;
+                border-radius: $radius-full;
+            }
+        }
+
+        .profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .iconify {
+                width: 2rem;
+                height: 2rem;
+                margin: $space-md;
+            }
+
+            p {
+                margin: $space-lg;
+                font-size: $font-size-lg;
+                font-weight: $font-weight-semibold;
+            }
+        }
+
+        .welcome {
+            display: grid;
+            grid-template: 1fr 1fr / 1fr 6fr;
+            column-gap: $space-sm;
+            img {
+                grid-row:span 2;
+                justify-self: end;
+                align-self: center;
+            }
+            .subtext {
+                align-self: end;
+                font-size: $font-size-sm;
+                font-weight: $font-weight-bold;
+            }
+            .name {
+                font-size: $font-size-lg;
+                font-weight: $font-weight-bold;
+            }
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            padding: $space-md;
+            button {
+                background-color: $main-color;
+                color: $secondary-color;
+                padding: 0.8rem 2rem 0.8rem 2rem;
+                border-radius: $radius-lg;
+            }
+        }
     }
+
     main {
         grid-area: main;
         display: grid;
-        grid-template: 1fr 1fr/ 2fr 1fr;
+        grid-template: 1fr 1fr/ 3fr 1fr;
+        background-color: $third-color;
+        padding: $space-lg;
+        gap: $space-sm;
+        .projects {
+            grid-row: span 2;
+            .projects-grid {
+                display: grid;
+                grid-template: 1fr 1fr 1fr / repeat(2, 1fr);
+            }
+            .card {
+            display: grid;
+            grid-template-columns: 10px 1fr;
+            grid-template-rows: 2fr 1fr;
+            margin: $space-sm;
+            background-color: $secondary-color;
+            border-radius: $radius-lg;
+            overflow: hidden;
+            box-shadow: $shadow-md;
+            .outline {
+                background-color: $accent-color;
+                grid-row: span 2;
+            }
+            .text {
+                padding: $space-xl $space-md;
+                h4 {
+                    margin-bottom: $space-sm;
+                    font-size: $font-size-lg;
+                }
+            }
+            .icons {
+                justify-self: end;
+                align-self: end;
+                padding: $space-lg;
+                .iconify {
+                    width: 2rem;
+                    height: 2rem;
+                }
+            }
+        }
+        }
+        
+        .announcements {
+            .announcements-grid{
+                background-color: $secondary-color;
+                border-radius: $radius-lg;
+                padding: $space-lg;
+                display: grid;
+                gap: $space-md;
+                margin: $space-sm;
+                box-shadow: $shadow-md;
+                hr {
+                    border: 1px solid $third-color;
+                }
+                h5 {
+                    font-weight: $font-weight-semibold;
+                }
+            }
+        }
+        .trending {
+            margin: $space-sm;
+            .trending-grid{
+                display: grid;
+                background-color: $secondary-color;
+                border-radius: $radius-lg;
+                padding: $space-md;
+                box-shadow: $shadow-md;
+                .profile {
+                    display: grid;
+                    padding: $space-md;
+                    grid-template-columns: 1fr 3fr;
+                    grid-template-rows: 1fr 1fr;
+                    align-items: center;
+
+                    img {
+                        grid-row: span 2;
+                    }
+                    h5 {
+                        align-self: end;
+                    }
+                }
+            }
+        }
     }
+
     aside {
         background-color: #1892d5;
         min-height: 100vh;
@@ -82,21 +236,24 @@ body {
         padding: $space-md;
         user-select: none;
         -webkit-user-select: none;
+
         .logo {
             display: flex;
             justify-content: start;
             align-items: center;
             font-size: $font-size-xxl;
             color: $secondary-color;
-            cursor: default;
+
             .logo-icon{
                 width: 60px;
                 height: 60px;
             }
         }
+
         .aside-nav{
             font-size: $font-size-xl;
             font-weight: $font-weight-semibold;
+
             .iconify{
                 width: 30px;
                 height: 30px;
