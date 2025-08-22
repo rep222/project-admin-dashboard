@@ -80,12 +80,15 @@ body {
         grid-template-rows: 1fr 3fr 5fr;
         gap: $space-md;
         padding: $space-md;
+        user-select: none;
+        -webkit-user-select: none;
         .logo {
             display: flex;
             justify-content: start;
             align-items: center;
             font-size: $font-size-xxl;
             color: $secondary-color;
+            cursor: default;
             .logo-icon{
                 width: 60px;
                 height: 60px;
@@ -108,7 +111,11 @@ body {
                 align-items: center;
                 gap: $space-md;
             }
-            
+            a:hover {
+                box-shadow: $shadow-lg;
+                transform: translateY(2px);
+                transition: all ease 0.2s;
+            }
         }
 
 

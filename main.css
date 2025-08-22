@@ -42,6 +42,9 @@ body a {
   grid-template-rows: 1fr 3fr 5fr;
   gap: 1rem;
   padding: 1rem;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
 }
 .wrapper aside .logo {
   display: flex;
@@ -49,6 +52,7 @@ body a {
   align-items: center;
   font-size: 1.5rem;
   color: #fefffe;
+  cursor: default;
 }
 .wrapper aside .logo .logo-icon {
   width: 60px;
@@ -71,4 +75,9 @@ body a {
   justify-content: start;
   align-items: center;
   gap: 1rem;
+}
+.wrapper aside .aside-nav a:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(2px);
+  transition: all ease 0.2s;
 }/*# sourceMappingURL=main.css.map */
