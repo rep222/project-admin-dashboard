@@ -56,7 +56,7 @@ body {
 
 .wrapper {
     display: grid;
-    grid-template-columns: 2fr 9fr;
+    grid-template-columns: 1fr 6fr;
     grid-template-rows: 1fr 8fr;
     grid-template-areas: 
     "aside header"
@@ -141,7 +141,7 @@ body {
     main {
         grid-area: main;
         display: grid;
-        grid-template: 1fr 1fr/ 3fr 1fr;
+        grid-template-columns: 3fr 1fr;
         background-color: $third-color;
         padding: $space-lg;
         gap: $space-sm;
@@ -149,7 +149,7 @@ body {
             grid-row: span 2;
             .projects-grid {
                 display: grid;
-                grid-template: 1fr 1fr 1fr / repeat(2, 1fr);
+                grid-template: 1fr 1fr 1fr / repeat(auto-fit, minmax(350px, 1fr));
             }
             .card {
             display: grid;
@@ -231,7 +231,7 @@ body {
         min-height: 100vh;
         grid-area: aside;
         display: grid;
-        grid-template-rows: 1fr 3fr 5fr;
+        grid-template-rows: 5rem 20rem 20rem;
         gap: $space-md;
         padding: $space-md;
         user-select: none;
@@ -253,7 +253,7 @@ body {
         .aside-nav{
             font-size: $font-size-xl;
             font-weight: $font-weight-semibold;
-
+            justify-self: start;
             .iconify{
                 width: 30px;
                 height: 30px;
@@ -277,4 +277,21 @@ body {
 
 
     }
+}
+
+@media (max-width: 768px) {
+  .aside-nav {
+    justify-self: center;
+    a {
+        span {
+            display: none
+        }
+    }
+  }
+  .logo {
+    h3 {
+        display: none;
+    }
+  }
+  
 }
